@@ -15,7 +15,7 @@ router
   .post("/add", protect, validate, uploadImage, createPackage)
   .put("/update/:id", protect, validate, updatePackage)
   .delete("/delete/:id", protect, validate, deletePackage)
-  .get("/getOne/:id", getPackageById)
-  .get("/getAll", getAllPackages);
+  .get("/:id", getPackageById)
+  .get("/", getAllPackages);
 
 module.exports = router;
