@@ -2,6 +2,10 @@ const asyncHandler = require("express-async-handler");
 const Package = require("../models/packageModel");
 const multer = require("multer");
 const { v4: uuidv4 } = require("uuid");
+const fs = require("fs");
+const path = require("path");
+const { promisify } = require("util");
+const unlinkAsync = promisify(fs.unlink);
 
 // Multer storage configuration
 const storage = multer.diskStorage({
@@ -83,18 +87,30 @@ const getPackageById = asyncHandler(async (req, res) => {
 // Update a package by ID
 const updatePackage = asyncHandler(async (req, res) => {
   const id = req.params.id;
-  const { name, description, features } = req.body;
+  const { name, description, features, price } = req.body;
 
-  // Perform any validation or data sanitization if necessary
+  const existingPackage = await Package.findById(id);
 
-  const updatedPackage = await Package.findByIdAndUpdate(
-    id,
-    { name, description, features },
-    { new: true, runValidators: true }
-  );
-
-  if (!updatedPackage) {
+  if (!existingPackage) {
     return res.status(404).json({ message: "Package not found." });
+  }
+
+  // Store the old image filename for later removal
+  const oldImageFilename = existingPackage.image;
+
+  // Update the package document in the database with the new fields
+  existingPackage.name = name;
+  existingPackage.description = description;
+  existingPackage.features = features;
+  existingPackage.price = price;
+  existingPackage.image = req.file ? req.file.filename : null;
+
+  const updatedPackage = await existingPackage.save();
+
+  // Remove the older image file from the data folder if there was a change in the image
+  if (req.file && oldImageFilename !== updatedPackage.image) {
+    const imagePathToRemove = path.join(__dirname, "../data", oldImageFilename);
+    await unlinkAsync(imagePathToRemove);
   }
 
   res.status(200).json(updatedPackage);
@@ -107,10 +123,20 @@ const deletePackage = asyncHandler(async (req, res) => {
   const deletedPackage = await Package.findByIdAndDelete(id);
 
   if (!deletedPackage) {
-    return res.status(404).json({ message: "Package not found" });
+    return res.status(404).json({ message: "Package not found." });
   }
 
-  res.status(200).json({ message: "Package deleted successfully" });
+  // Remove the associated image from the data folder
+  if (deletedPackage.image) {
+    const imagePathToRemove = path.join(
+      __dirname,
+      "../data",
+      deletedPackage.image
+    );
+    await unlinkAsync(imagePathToRemove);
+  }
+
+  res.status(200).json({ message: "Package deleted successfully." });
 });
 
 module.exports = {

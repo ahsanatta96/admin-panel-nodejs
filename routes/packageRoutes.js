@@ -13,7 +13,7 @@ const {
 
 router
   .post("/add", protect, validate, uploadImage, createPackage)
-  .put("/update/:id", protect, validate, updatePackage)
+  .patch("/update/:id", protect, validate, uploadImage, updatePackage)
   .delete("/delete/:id", protect, validate, deletePackage)
   .get("/:id", getPackageById)
   .get("/", getAllPackages);

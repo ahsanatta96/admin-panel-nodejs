@@ -7,7 +7,7 @@ const {
 } = require("../controllers/bookingController");
 
 router.post("/add", addBooking);
-router.get("/getOne/:id", getBookingByID);
-router.get("/getAll", getAllBookings);
+router.get("/:id", getBookingByID);
+router.get("/", getAllBookings);
 
 module.exports = router;
