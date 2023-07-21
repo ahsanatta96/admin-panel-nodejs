@@ -7,9 +7,10 @@ const {
   verifyPasswordResetOTP,
 } = require("../controllers/passwordResetController");
 
-const { loginUser } = require("../controllers/userController");
+const { loginUser, getUserByID } = require("../controllers/userController");
 
 router
+  .get("/:id", getUserByID)
   .post("/login", loginUser)
   .put("/change-password/:id", protect, changePassword)
   .post("/reset-password", sendPasswordResetOTP)

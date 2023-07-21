@@ -50,6 +50,18 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route   POST /api/users/login
 // @access  Public
 
+// Get a booking by ID
+const getUserByID = asyncHandler(async (req, res) => {
+  const id = req.params.id;
+
+  const user = await User.findById(id);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found." });
+  }
+  res.json(user);
+});
+
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -75,4 +87,4 @@ const generateToken = (id) => {
   });
 };
 
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser, getUserByID };
