@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
 const asyncHandler = require("express-async-handler");
+const packageModel = require("../models/packageModel");
+const bookingModel = require("../models/bookingModel");
 
 const changePassword = asyncHandler(async (req, res) => {
   const { id } = req.user;
@@ -32,5 +34,19 @@ const changePassword = asyncHandler(async (req, res) => {
       .json({ message: "Something went wrong.", error: error.message });
   }
 });
+const getDashbordCounts =asyncHandler(async(req,res)=>{
+  console.log("hello");
+  const date= new Date();
+   const UpcomingBooking= await bookingModel.find({date:{$gt:date}}).sort({createdAt:-1});
+   const PastBooking=await bookingModel.find({date:{$lt:date}}).sort({createdAt:-1});
+   const Packages=await packageModel.find().sort({createdAt:-1})
+ var data={
+   UpcomingBooking:UpcomingBooking,
+   PastBooking:PastBooking,
+   Packages:Packages
+ };
+ res.json(data);
+ })
 
-module.exports = { changePassword };
+
+module.exports = { changePassword,getDashbordCounts };

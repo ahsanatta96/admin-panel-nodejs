@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
@@ -16,6 +17,8 @@ const app = express();
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 // app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
 
 app.use("/users", userRoutes);
 app.use("/admin", adminRoutes);
