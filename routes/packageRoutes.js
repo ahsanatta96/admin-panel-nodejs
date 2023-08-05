@@ -10,6 +10,7 @@ const {
   updatePackage,
   deletePackage,
 } = require("../controllers/packageController");
+const { getDashbordCounts } = require("../controllers/adminController");
 
 router
   .post("/add", protect, validate, uploadImage, createPackage)

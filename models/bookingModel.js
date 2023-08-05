@@ -11,6 +11,15 @@ const bookingSchema = new mongoose.Schema(
       required: [true, "Please provide the number of adults."],
       min: 1,
     },
+    TotalPrice: {
+      type: Number,
+      required: [true, "Please provide the Total Price."],
+    },
+    numOfChild: {
+      type: Number,
+      required: [true, "Please provide the number of child."],
+    min:0,
+    },
     name: {
       type: String,
       required: [true, "Please provide your name."],

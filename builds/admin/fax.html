@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/AmericanClinic Online.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>American Clinic Online | Doctor</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div> -->
+    <div style="display: flex; width:100%; justify-content:center">
+      <div style="width: 1020px;">
+        <div style="border: 2px solid #111; height: 100%; padding: 10px">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: 100%;
+              align-items: center;
+            "
+          >
+            <h3 style="font-size:34px; font-weight:bold; margin-bottom: 10px;">Prescription</h3>
+            <p style="font-size:18px; font-weight:bold; margin-bottom: 10px;">This prescription is valid at any insurance pharmacy.</p>
+          </div>
+          <div
+            style="border: 2px solid #111; display: flex; flex-direction: column"
+          >
+            <div style="display: flex; width: 100%">
+              <div
+                style="border-right: 2px solid #111; padding: 10px; width: 20%"
+              >
+                <h3>Public expense bearer number</h3>
+              </div>
+              <div
+                style="width: 30%; border-right: 2px solid #111; padding: 10px"
+              ></div>
+              <div
+                style="border-right: 2px solid #111; padding: 10px; width: 20%"
+              >
+                <h3>Insurer number</h3>
+              </div>
+              <div style="width: 30%; padding: 10px"></div>
+            </div>
+            <div style="display: flex; width: 100%; border-top: 2px solid #111">
+              <div
+                style="border-right: 2px solid #111; padding: 10px; width: 20%"
+              >
+                <h3>Receiving number of publicly expense-borne medical care</h3>
+              </div>
+              <div
+                style="width: 30%; border-right: 2px solid #111; padding: 10px"
+              ></div>
+              <div
+                style="border-right: 2px solid #111; padding: 10px; width: 20%"
+              >
+                <h3>
+                  Symbols and numbers of insured card and insured person's
+                  notebook
+                </h3>
+              </div>
+              <div style="width: 30%; padding: 10px"></div>
+            </div>
+          </div>
+          <!-- 2nd -->
+          <div
+            style="
+              display: flex;
+              width: 100%;
+              margin-top: 20px;
+            "
+          >
+          <div style="border: 2px solid #111;  width: 50%; display: flex; ">
+              <div style="border-right: 2px solid #111; padding: 10px; width: 15%;">
+                  <h3>Patient</h3>
+              </div>
+              <div style="display: flex; flex-direction:column;  width: 85%">
+                  <div style=" width: 100%; display: flex;">
+                      <div style=" width: 37%;">
+                          <div style="border-right: 2px solid #111;border-bottom: 2px solid #111; padding: 10px; height:40px">
+                              <h3>Name</h3>
+                          </div>
+                      </div>
+                      <div style=" width: 62%;">
+                          <div style="border-bottom: 2px solid #111; padding: 10px; height:40px">
+                              
+                          </div>
+                      </div>
+                   </div> 
+                   <div style=" width: 100%; display: flex;">
+                      <div style=" width: 37%;">
+                          <div style="border-right: 2px solid #111; border-bottom: 2px solid #111; padding: 10px; height:40px">
+                              <h3>Date of Birth</h3>
+                          </div>
+                      </div>
+                      <div style=" width: 32%;">
+                          <div style="border-bottom: 2px solid #111; border-right: 2px solid #111;  padding: 10px; height:40px">
+                              <h3>Year-month-day</h3>
+                          </div>
+                      </div>
+                      <div style=" width: 30%;">
+                          <div style="border-bottom: 2px solid #111; padding: 10px; height:40px">
+                              <h3>Gender</h3>
+                          </div>
+                      </div>
+                   </div>  
+                   <div style=" width: 100%; display: flex;">
+                      <div style=" width: 37%;">
+                          <div style="border-right: 2px solid #111;  padding: 10px; ; height:40px">
+                              <h3>Classification</h3>
+                          </div>
+                      </div>
+                      <div style=" width: 32%;">
+                          <div style="border-right: 2px solid #111; padding: 10px; ; height:40px">
+                              <h3>Insured Person</h3>
+                          </div>
+                      </div>
+                      <div style=" width: 30%;">
+                          <div style=" padding: 10px; ; height:40px">
+                              <h3>Dependent</h3>
+                          </div>
+                      </div>
+                   </div>   
+              </div>
+               
+          </div> 
+          <div style="margin-left: 30px; width: 45%; display: flex; flex-direction: column; justify-content: space-between; ">
+              <h1>保険医療機関の<br/>
+                所在地及び名称
+              </h1>           
+              <h1>電 話 番 号</h1> 
+              <h1> 保 険 医 氏 名</h1>
+              <div style="border-top: 2px solid #111;  width: 100%; display: flex; ">
+                  <div style="border-left: 2px solid #111;  border-right: 2px solid #111;  width: 17%; display: flex; align-items: center; height: 40px;">
+                      <h3 >都道府県番号</h3>
+                  </div>
+                  <div style="border-right: 2px solid #111;  width: 17%; display: flex; align-items: center; height: 40px;">
+                      <h3 ></h3>
+                  </div>
+                  <div style="border-right: 2px solid #111;  width: 16%; display: flex; align-items: center; height: 40px;">
+                      <h3 >Point Table</h3>
+                  </div>
+                  <div style="border-right: 2px solid #111;  width: 16%; display: flex; align-items: center; height: 40px;">
+                      <h3 ></h3>
+                  </div>
+                  <div style="border-right: 2px solid #111;  width: 17%; display: flex; align-items: center; height: 40px;">
+                      <h3 >Institution code</h3>
+                  </div>
+                  <div style="  width: 17%;  border-right: 2px solid #111; display: flex; align-items: center; height: 40px;">
+                      <h3 ></h3>
+                  </div>
+              </div>
+          </div>
+        </div>
+          <div style="width: 100%; display: flex; ">
+              <div style="width: 50%; display: flex;">
+                  <div style="width: 50%;  border-right: 2px solid #111;  border-left: 2px solid #111; height: 43px; padding: 10px">Date of delivery</div>
+                  <div style="width: 50%;  border-right: 2px solid #111; padding: 10px;  height: 43px">year, month , day</div>
+              </div>     
+              <div style="width: 50%; display: flex;">
+                  <div style="width: 50%;  border-right: 2px solid #111;  border-top: 2px solid #111;  height: 40px; padding: 10px">Date of deliver</div>
+                  <div style="width: 50%;  border-right: 2px solid #111; border-top: 2px solid #111;  padding: 10px">year, month , day</div>
+              </div>
+          </div>
+          <div style="width: 100%; display: flex; border: 2px solid #111; min-height: 250px; height:auto">
+          <div style="width:25%;  border-right: 2px solid #111; display: flex; min-height: 250px; height:auto;">
+              <div style="width:40%; border-right: 2px solid #111; padding:10px; display: flex; align-items: center;">Prescription</div>
+              <div style="width:60%; padding:10px;  display: flex; align-items: center">Non-changeable</div>
+           </div>
+          <div style="width:75%; padding:10px; display: flex; justify-content: space-between; flex-direction: column; min-height: 250px; height:auto;">
+              <div>
+                  <h3>If it is determined that there should not be a change to a generic drug (generic drug) write "check" or "X" in the 
+                      "non-changeable" column, for each prescription drug, place a mark/sign/seal in the "Insurance Physician Signature" column.
+                    ================
+                   </h3>
+                   <div style="border-bottom: 1px solid lightgrey; margin-bottom: 5px"></div>
+
+                   <div style="display: flex; justify-content: space-between; width: 75%; ">
+                    <div >Name:</div>
+                    <div>Potency:</div>
+                    <div>Total days:</div>
+                   </div>
+                   <div>
+                    <div style="font-weight:normal">Dosing details</div>
+                   </div>
+                   <div>
+                    <div>Time:　Morning(3),</div>
+                   </div>
+                   <div style="border-bottom: 1px solid lightgrey; margin-bottom: 5px"></div>
+              </div>
+              <div style="display: flex; ">
+                      <h3>1)Refillable</h3>
+                      <div style="border: 1px solid #111; height: 15px; width: 15px; margin-left: 10px;"></div>
+                      <h3 style="margin-left:15px;  bottom: 0;">(　　　　　　)</h3>
+              </div>
+          </div>
+          </div>
+          <div style="width: 100%; display: flex; border-left: 2px solid #111; border-right: 2px solid #111; border-bottom: 2px solid #111; height: 250px;">
+              <div style="width:10%;  border-right: 2px solid #111; display: flex; align-items: center; padding-left:20px ">
+                  remark
+               </div>
+              <div style="width:90%; display: flex;  flex-direction: column; height: 100%;">
+                <div style="width:70%; border-right: 2px solid #111; border-bottom: 2px solid #111; padding:10px; height:100px; display: flex;">
+                  <div style="width:50%;">Insurance Physician Signature</div>
+                  <div style="width:50%;">(「変更不可」欄に「レ」又は「×」を記載
+                      した場合は、署名又は記名・押印すること。「変更不可」欄に「レ」又は「×」を記載
+                      した場合は、署名又は記名・押印すること。)</div>
+                </div>
+                <div style="width:100%;  padding:10px; height:90px; display: flex;">
+                  <div style="width:100%;">If the insurance pharmacy notices preissued medications (If there are directives, place “check” or “X” in the box.</div> 
+                </div>
+                <div style="width:100%; border-top: 2px solid #111; height:90px; display: flex; flex-direction:column">
+                    <div>　保険薬局が調剤時に残薬を確認した場合の対応(特に指示がある場合は「レ」又は「×」を記載すること。)
+                  </div>
+                  <div style="display: flex; justify-content:space-around; margin-top: 15px;">
+                      <div style="display: flex;">
+                          <div style="border: 1px solid #111; height: 15px; width: 15px; margin-left: 10px; margin-top: 3px;"></div>
+                          <div style="margin-left: 10px">Notify the issuing Insurance institution and prepare medications.</div>
+                      </div>
+                      <div style="display: flex;">
+                          <div style="border: 1px solid #111; height: 15px; width: 15px; margin-left: 10px; margin-top: 3px;"></div>
+                          <div style="margin-left: 10px">Report to the issuing medical institution.</div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div style="width:100%;  border-left: 2px solid #111; border-right: 2px solid #111; border-bottom: 2px solid #111; height:90px; display: flex; flex-direction:column">
+                  <div>　調剤実施回数（調剤回数に応じて、□に「レ」又は「×」を記載するとともに、調剤日及び次回調剤予定日を記載すること。）
+  
+                </div>
+                <div style="display: flex; justify-content:space-around; margin-top: 15px;">
+                    <div style="display: flex;">
+                        <div style="border: 1px solid #111; height: 15px; width: 15px; margin-left: 10px; margin-top: 3px;"></div>
+                        <div style="margin-left: 10px">1)　回目調剤日　(　　年　　月　　日）</div>
+                    </div>
+                    <div style="display: flex;">
+                        <div style="border: 1px solid #111; height: 15px; width: 15px; margin-left: 10px; margin-top: 3px;"></div>
+                        <div style="margin-left: 10px">２)　回目調剤日（　　　年　　月　　日）</div>
+                    </div>
+                    <div style="display: flex;">
+                      <div style="border: 1px solid #111; height: 15px; width: 15px; margin-left: 10px; margin-top: 3px;"></div>
+                      <div style="margin-left: 10px">３)　回目調剤日（　　　年　　月　　日）</div>
+                  </div>
+                </div>
+           </div>
+           <div style="width:100%;  border-left: 2px solid #111; border-right: 2px solid #111; border-bottom: 2px solid #111; height:90px; display: flex; ">
+                  <div style="width: 50%; display: flex; ">
+                      <div style="width: 40%; border-right: 2px solid #111; height:90px;">Date of Completion of Dispensing</div>
+                      <div style="width: 60%; border-right: 2px solid #111; height:90px;">Year, month and day</div>
+                  </div>
+                  <div style="width: 50%; display: flex; ">
+                      <div style="width: 40%; border-right: 2px solid #111; height:90px;">Public expense bearer number</div>
+                      <div style="width: 60%; border-right: 2px solid #111; height:90px;"></div>
+                  </div>
+           </div>
+           <div style="width:100%;  border-left: 2px solid #111; border-right: 2px solid #111; border-bottom: 2px solid #111; height:90px; display: flex; ">
+              <div style="width: 50%; display: flex; ">
+                  <div style="width: 40%; border-right: 2px solid #111; height:90px;">保険薬局の所在地<br/> 及 び 名 称<br/>保 険 薬 剤 師 氏 名</div>
+                  <div style="width: 60%; border-right: 2px solid #111; height:90px;">Name of pharmacy, address,Insurance Pharmacist name</div>
+              </div>
+              <div style="width: 50%; display: flex; ">
+                  <div style="width: 40%; border-right: 2px solid #111; height:90px;">公費負担医療の<br/>
+                      受 給 者 番 号</div>
+                  <div style="width: 60%; border-right: 2px solid #111; height:90px;"></div>
+              </div>
+       </div>
+       <div>
+       </div>
+       <div style="display: flex; padding-top: 10px; padding-bottom: 15px">
+          <div style="width: 3%;">備考</div>
+          <div style="width: 95%;">
+              <div>1)　「処方」欄には、薬名、分量、用法及び用量を記載すること。</div>
+              <div>2)　この用紙は、Ａ列５番を標準とすること。</div>
+              <div>3)　療養の給付及び公費負担医療に関する費用の請求に関する省令（昭和51年厚生省令第36号）第１条の公費負担医療については、「保険医療機関」とある
+                  　のは「公費負担医療の担当医療機関」と、「保険医氏名」とあるのは「公費負担医療の担当医氏名」と読み替えるものとすること。</div>
+          </div>
+       </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

@@ -7,6 +7,7 @@ const path = require("path");
 const { promisify } = require("util");
 const unlinkAsync = promisify(fs.unlink);
 
+
 // Multer storage configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -38,14 +39,18 @@ const upload = multer({
   fileFilter: fileFilter,
 });
 
+
+
 // Controller function for handling file upload
-const uploadImage = upload.single("image");
+// const uploadImage = upload.single("image");
+const uploadImage = upload.array("images", 10);
 
 // Controller function for creating a new package
 const createPackage = asyncHandler(async (req, res) => {
-  const { name, price, description, features } = req.body;
+  console.log('res',req.body)
+  const { name, adultprice, childPrice, rating, TimeDuration, description, features,pickup } = req.body;
 
-  if (!name || !description) {
+  if (!name || !description || !adultprice || !childPrice || !rating || !TimeDuration || !pickup) {
     res.status(400).json({ message: "Please add all fields" });
   }
 
@@ -58,11 +63,16 @@ const createPackage = asyncHandler(async (req, res) => {
   // Create the new package
   const newPackage = await Package.create({
     name,
-    price,
+    adultprice,
+    childPrice,
+    rating,
+    TimeDuration,
     description,
     features,
-    image: req.file ? req.file.filename : null,
+    pickup,
+    images: req.files.map((file) => file.filename),
   });
+  console.log('new',newPackage)
   res.status(201).json(newPackage);
 });
 
@@ -87,7 +97,7 @@ const getPackageById = asyncHandler(async (req, res) => {
 // Update a package by ID
 const updatePackage = asyncHandler(async (req, res) => {
   const id = req.params.id;
-  const { name, description, features, price } = req.body;
+  const {name, adultprice, childPrice, rating, TimeDuration, description, features,pickup } = req.body;
 
   const existingPackage = await Package.findById(id);
 
@@ -96,21 +106,35 @@ const updatePackage = asyncHandler(async (req, res) => {
   }
 
   // Store the old image filename for later removal
-  const oldImageFilename = existingPackage.image;
+  const oldImageFilenames = existingPackage.images;
 
   // Update the package document in the database with the new fields
   existingPackage.name = name;
   existingPackage.description = description;
   existingPackage.features = features;
-  existingPackage.price = price;
-  existingPackage.image = req.file ? req.file.filename : null;
+  existingPackage.adultprice = adultprice;
+  existingPackage.childPrice = childPrice;
+  existingPackage.rating = rating;
+  existingPackage.TimeDuration = TimeDuration;
+  existingPackage.pickup = pickup;
+  
+  
+
+
+  if (req.files && req.files.length > 0) {
+    existingPackage.images = req.files.map((file) => file.filename);
+  }
 
   const updatedPackage = await existingPackage.save();
 
-  // Remove the older image file from the data folder if there was a change in the image
-  if (req.file && oldImageFilename !== updatedPackage.image) {
-    const imagePathToRemove = path.join(__dirname, "../data", oldImageFilename);
-    await unlinkAsync(imagePathToRemove);
+  // Remove the older image files from the data folder if there was a change in the images
+  if (req.files) {
+    for (const oldImageFilename of oldImageFilenames) {
+      if (!updatedPackage.images.includes(oldImageFilename)) {
+        const imagePathToRemove = path.join(__dirname, "../data", oldImageFilename);
+        await unlinkAsync(imagePathToRemove);
+      }
+    }
   }
 
   res.status(200).json(updatedPackage);

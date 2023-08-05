@@ -4,22 +4,41 @@ const packageSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      unique: true,
-      require: [true, "Please add package name."],
+      require: true,
     },
-    price: {
+    adultprice: {
       type: Number,
       require: true,
     },
-    image: {
-      type: String,
+    childPrice: {
+      type: Number,
+      require: true,
+    },
+    rating: {
+      type: Number,
+      require: true,
+    },
+    images: {
+      type: [String],
+      default:[],
+      require: true,
     },
     description: {
       type: String,
+      require: true,
+    },
+    TimeDuration:{
+      type:String,
+      require:true,
+    },
+    pickup: {
+      type: Boolean,
+      default: true,
     },
     features: {
       type: [String],
       default: [],
+      require: true,
     },
   },
   {

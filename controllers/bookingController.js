@@ -7,6 +7,8 @@ const addBooking = asyncHandler(async (req, res) => {
   const {
     date,
     numOfAdults,
+    TotalPrice,
+    numOfChild,
     name,
     email,
     phoneNumber,
@@ -14,12 +16,13 @@ const addBooking = asyncHandler(async (req, res) => {
     message,
   } = req.body;
 
-  console.log("Received date:", date);
   const parsedDate = moment(date, "DD-MM-YYYY", true);
 
   const createdBooking = await Booking.create({
     date: parsedDate.toDate(),
     numOfAdults,
+    TotalPrice,
+    numOfChild,
     name,
     email,
     phoneNumber,
